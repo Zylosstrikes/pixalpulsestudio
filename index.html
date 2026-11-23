@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07060f">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Pixal Pulse Studio — the official home of Nova Linx, Nova Code, AnimeSoul and the rest of our apps. Browse, open or download them in one place.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pixal Pulse">
+  <title>Pixal Pulse Studio</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pixal Pulse Studio">
+  <meta property="og:description" content="The official app store for Pixal Pulse Studio. Open Nova Linx, Nova Code, AnimeSoul and more.">
+  <meta property="og:image" content="img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pixal Pulse Studio">
+  <meta name="twitter:description" content="The official app store for Pixal Pulse Studio. Open Nova Linx, Nova Code, AnimeSoul and more.">
+  <meta name="twitter:image" content="img/og.jpg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#catalog">Skip to apps</a>
+  <header class="header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="Pixal Pulse Studio home">
+        <img src="icons/icon-192.png" alt="" width="40" height="40">
+        <span class="brand-name">Pixal Pulse<span>Studio</span></span>
+      </a>
+      <form class="search" role="search" action="#" onsubmit="return false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="M20 20l-3.5-3.5" stroke-linecap="round"></path>
+        </svg>
+        <label class="visually-hidden" for="search" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Search apps</label>
+        <input id="search" type="search" placeholder="Search apps" autocomplete="off" enterkeyhint="search">
+      </form>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="hero">
+      <p class="kicker"><i></i> Official store</p>
+      <h1>The home of our apps</h1>
+      <p class="lede">Everything from Pixal Pulse Studio, in one place. Open it on the web or download it to your phone.</p>
+
+      <article class="featured" id="featured">
+        <div class="feat-copy">
+          <p class="kicker" style="letter-spacing:.12em"><i></i> Featured</p>
+          <div class="feat-app">
+            <img src="icons/apps/nova-linx.png" alt="" width="72" height="72">
+            <div>
+              <h2>Nova Linx</h2>
+              <div class="cat">Assistant</div>
+            </div>
+          </div>
+          <p>Your fast, friendly AI assistant. Chat, get homework help, create pictures, build apps, and talk by voice.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://lumenaiassistant.com" target="_blank" rel="noopener noreferrer">Open</a>
+            <a class="btn btn-ghost" href="https://lumenaiassistant.com/download/nova-linx.apk" target="_blank" rel="noopener noreferrer" download>Get Android app</a>
+            <button class="btn btn-ghost" type="button" id="feat-details" data-id="nova-linx">Details</button>
+          </div>
+        </div>
+        <figure class="device" aria-hidden="true">
+          <img src="screenshots/nova-linx.jpg" alt="">
+        </figure>
+      </article>
+    </section>
+
+    <section class="section wrap" id="new-section">
+      <div class="section-head">
+        <h2>New</h2>
+      </div>
+      <div class="row" id="new-row" role="list"></div>
+    </section>
+
+    <section class="section wrap" id="catalog">
+      <div class="section-head">
+        <h2 id="result-count">All apps</h2>
+      </div>
+      <div class="chips" id="chips" role="toolbar" aria-label="Filter by category"></div>
+      <div class="grid" id="grid" role="list"></div>
+      <p class="empty" id="empty">No apps match that search. Try a different name or category.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div><strong>Pixal Pulse Studio</strong><br>The official home of our apps.</div>
+      <div>© 2026 Pixal Pulse Studio</div>
+    </div>
+  </footer>
+
+  <div class="modal" id="modal" hidden>
+    <button class="modal-backdrop" type="button" aria-label="Close details"></button>
+    <div class="modal-sheet" id="modal-sheet" role="dialog" aria-modal="true" aria-labelledby="modal-title"></div>
+  </div>
+  <div class="lightbox" id="lightbox" hidden tabindex="-1" aria-label="Screenshot"></div>
+
+  <noscript>
+    <style>
+      .chips, .empty { display: none; }
+      .grid, .row { display: block; padding: 16px; }
+    </style>
+    <div class="wrap" style="padding:16px 0 40px">
+      <h2>All apps</h2>
+      <ul>
+        <li><a href="https://lumenaiassistant.com">Nova Linx</a> — AI assistant</li>
+        <li><a href="https://lumenaiassistant.com/download/nova-linx.apk">Nova Linx for Android</a> — Download the APK</li>
+        <li><a href="https://lumenaiassistant.com/lite">Nova Linx keypad</a> — Feature-phone edition</li>
+        <li><a href="https://lumenaiassistant.com/link">Keypad code sign-in</a></li>
+        <li><a href="https://lumenaiassistant.com/developers">Nova Linx API keys</a></li>
+        <li><a href="https://lumenaiassistant.com/novacode">Nova Code</a> — Browser code editor</li>
+        <li><a href="https://animesoul.onrender.com">AnimeSoul</a> — Chat with anime characters</li>
+      </ul>
+    </div>
+  </noscript>
+  <script src="app.js" defer></script>
+</body>
+</html>
