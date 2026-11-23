@@ -4,7 +4,9 @@ The official app catalog for Pixal Pulse Studio — a Play Store-style home for 
 
 ## Live site
 
-The site is deployed as a static site on Render. After you buy and point `pixalpulsestudio.com` at it, that domain can become the public address.
+Live at [https://pixalpulsestudio.onrender.com](https://pixalpulsestudio.onrender.com).
+
+`pixalpulsestudio.com` is not connected yet. After the domain is registered, point it at this Render static site to make that the public address.
 
 ## Local preview
 
