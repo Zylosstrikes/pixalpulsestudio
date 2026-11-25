@@ -17,6 +17,7 @@ const APPS = [
     secondary: { label: "Get Android app", href: "https://lumenaiassistant.com/download/nova-linx.apk", type: "download" },
     featured: true,
     isNew: false,
+    showApi: true,
   },
   {
     id: "nova-linx-android",
@@ -84,7 +85,7 @@ const APPS = [
       { src: "screenshots/nova-linx-api/desktop-quickstart.webp", alt: "API Quickstart guide on a computer", form: "desktop" },
       { src: "screenshots/nova-linx-api/desktop-chat.webp", alt: "API Chat documentation on a computer", form: "desktop" },
     ],
-    action: { label: "Open", href: "https://lumenaiassistant.com/developers", type: "open" },
+    action: { label: "Get API key", href: "https://lumenaiassistant.com/developers", type: "open" },
     featured: false,
     isNew: false,
   },
@@ -135,6 +136,7 @@ const els = {
   newRow: document.getElementById("new-row"),
   newSection: document.getElementById("new-section"),
   catalog: document.getElementById("catalog"),
+  developers: document.getElementById("developers"),
   featured: document.getElementById("featured"),
   hero: document.getElementById("hero"),
   empty: document.getElementById("empty"),
@@ -174,6 +176,9 @@ function escapeHtml(s) {
 
 function cardHTML(app, { compact } = {}) {
   const badge = app.isNew ? `<span class="badge">New</span>` : "";
+  const api = app.showApi
+    ? `<a class="card-cta api" href="https://lumenaiassistant.com/developers" target="_blank" rel="noopener noreferrer">Get API key</a>`
+    : "";
   return `
     <article class="card" role="listitem" tabindex="0" data-id="${app.id}" aria-label="${escapeHtml(app.name)}">
       ${badge}
@@ -183,6 +188,7 @@ function cardHTML(app, { compact } = {}) {
       <p class="blurb">${escapeHtml(app.blurb)}</p>
       <div class="cta">
         <a ${actionAttrs(app.action)}>${escapeHtml(app.action.label)}</a>
+        ${api}
       </div>
     </article>`;
 }
@@ -201,6 +207,7 @@ function render() {
 
   els.hero.hidden = filtering;
   els.newSection.hidden = filtering;
+  if (els.developers) els.developers.hidden = filtering;
   els.empty.classList.toggle("visible", visible.length === 0);
 
   if (!filtering) {
@@ -211,6 +218,7 @@ function render() {
   els.grid.innerHTML = visible.map((a) => cardHTML(a)).join("");
   document.getElementById("result-count").textContent =
     filtering ? `${visible.length} app${visible.length === 1 ? "" : "s"}` : "All apps";
+  observeCards();
 }
 
 function shotsOf(app) {
@@ -220,6 +228,9 @@ function shotsOf(app) {
 function openModal(app) {
   lastFocus = document.activeElement;
   const secondary = actionButton(app.secondary, false);
+  const apiBtn = app.showApi
+    ? `<a class="btn btn-api" href="https://lumenaiassistant.com/developers" target="_blank" rel="noopener noreferrer">Get API key</a>`
+    : "";
   const shots = shotsOf(app);
   const gallery = shots.map((s, i) => {
     const alt = escapeHtml(s.alt || `${app.name} screenshot ${i + 1}`);
@@ -239,6 +250,7 @@ function openModal(app) {
     </div>
     <div class="actions" style="margin-bottom:16px">
       ${actionButton(app.action, true)}
+      ${apiBtn}
       ${secondary}
     </div>
     <p class="modal-desc">${escapeHtml(app.description)}</p>
@@ -317,6 +329,46 @@ function focusShot(current, dir) {
   next.scrollIntoView({ inline: "nearest", block: "nearest", behavior: "smooth" });
 }
 
+
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let cardObserver = null;
+
+function observeCards() {
+  if (cardObserver) cardObserver.disconnect();
+  const nodes = document.querySelectorAll(".card, .reveal");
+  if (reduceMotion) {
+    nodes.forEach((el) => el.classList.add("in-view"));
+    return;
+  }
+  cardObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("in-view");
+        cardObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
+  );
+  nodes.forEach((el, i) => {
+    el.style.setProperty("--stagger", `${(i % 8) * 55}ms`);
+    cardObserver.observe(el);
+  });
+}
+
+function spawnRipple(e, target) {
+  if (reduceMotion) return;
+  const rect = target.getBoundingClientRect();
+  const ripple = document.createElement("span");
+  ripple.className = "ripple";
+  const size = Math.max(rect.width, rect.height) * 1.8;
+  ripple.style.width = ripple.style.height = `${size}px`;
+  ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+  ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+  target.appendChild(ripple);
+  ripple.addEventListener("animationend", () => ripple.remove());
+}
+
 function onActivateCard(target) {
   const card = target.closest(".card");
   if (!card) return;
@@ -383,6 +435,11 @@ document.addEventListener("keydown", (e) => {
       if (app) openLightbox(app, Number(e.target.dataset.index) || 0);
     }
   }
+});
+
+document.addEventListener("pointerdown", (e) => {
+  const btn = e.target.closest(".btn, .card-cta");
+  if (btn) spawnRipple(e, btn);
 });
 
 els.lightbox.addEventListener("pointerdown", (e) => { lbStartX = e.clientX; });

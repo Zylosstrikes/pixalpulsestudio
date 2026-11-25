@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <script>document.documentElement.classList.add("js");</script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#07060f">
   <meta name="color-scheme" content="dark">
@@ -25,6 +26,11 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="ambiance" aria-hidden="true">
+    <span class="orb orb-a"></span>
+    <span class="orb orb-b"></span>
+    <span class="orb orb-c"></span>
+  </div>
   <a class="skip" href="#catalog">Skip to apps</a>
   <header class="header">
     <div class="wrap">
@@ -40,6 +46,14 @@
         <label class="visually-hidden" for="search" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Search apps</label>
         <input id="search" type="search" placeholder="Search apps" autocomplete="off" enterkeyhint="search">
       </form>
+      <a class="btn btn-api header-api" href="https://lumenaiassistant.com/developers" target="_blank" rel="noopener noreferrer" aria-label="Get API key">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M8 14a4 4 0 1 1 3.2-6.4L16 12.4V16h-3v2h-2v-3.2L8.8 13A4 4 0 0 1 8 14Z" stroke-linejoin="round"></path>
+          <path d="M15.5 10.5h2" stroke-linecap="round"></path>
+        </svg>
+        <span class="label-full">Get API key</span>
+        <span class="label-short">API key</span>
+      </a>
     </div>
   </header>
 
@@ -49,7 +63,7 @@
       <h1>The home of our apps</h1>
       <p class="lede">Everything from Pixal Pulse Studio, in one place. Open it on the web or download it to your phone.</p>
 
-      <article class="featured" id="featured">
+      <article class="featured reveal" id="featured">
         <div class="feat-copy">
           <p class="kicker" style="letter-spacing:.12em"><i></i> Featured</p>
           <div class="feat-app">
@@ -62,6 +76,7 @@
           <p>Your fast, friendly AI assistant. Chat, get homework help, create pictures, build apps, and talk by voice.</p>
           <div class="actions">
             <a class="btn btn-primary" href="https://lumenaiassistant.com" target="_blank" rel="noopener noreferrer">Open</a>
+            <a class="btn btn-api" href="https://lumenaiassistant.com/developers" target="_blank" rel="noopener noreferrer">Get API key</a>
             <a class="btn btn-ghost" href="https://lumenaiassistant.com/download/nova-linx.apk" target="_blank" rel="noopener noreferrer" download>Get Android app</a>
             <button class="btn btn-ghost" type="button" id="feat-details" data-id="nova-linx">Details</button>
           </div>
@@ -86,6 +101,17 @@
       <div class="chips" id="chips" role="toolbar" aria-label="Filter by category"></div>
       <div class="grid" id="grid" role="list"></div>
       <p class="empty" id="empty">No apps match that search. Try a different name or category.</p>
+    </section>
+
+    <section class="section wrap" id="developers">
+      <article class="dev-card reveal">
+        <div class="dev-copy">
+          <p class="kicker"><i></i> Developers</p>
+          <h2>Get an API key</h2>
+          <p>Add Nova Linx chat, pictures and video to your own apps. Create a personal key on the developer page — it belongs to your Nova Linx account and uses your plan and daily limits.</p>
+        </div>
+        <a class="btn btn-api" href="https://lumenaiassistant.com/developers" target="_blank" rel="noopener noreferrer">Get API key</a>
+      </article>
     </section>
   </main>
 
