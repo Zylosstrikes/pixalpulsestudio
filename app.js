@@ -7,7 +7,12 @@ const APPS = [
     description:
       "Nova Linx is a free AI chat assistant from Pixal Pulse Studio. Ask anything, get homework and math help, create pictures and videos, build apps, and talk by voice.",
     icon: "icons/apps/nova-linx.png",
-    screenshot: "screenshots/nova-linx.jpg",
+    screenshots: [
+      { src: "screenshots/nova-linx/phone-home.webp", alt: "Nova Linx home screen on a phone", form: "phone" },
+      { src: "screenshots/nova-linx/phone-menu.webp", alt: "Nova Linx side menu and Explore", form: "phone" },
+      { src: "screenshots/nova-linx/phone-images.webp", alt: "Nova Linx Images, with picture templates", form: "phone" },
+      { src: "screenshots/nova-linx/desktop-home.webp", alt: "Nova Linx on a computer", form: "desktop" },
+    ],
     action: { label: "Open", href: "https://lumenaiassistant.com", type: "open" },
     secondary: { label: "Get Android app", href: "https://lumenaiassistant.com/download/nova-linx.apk", type: "download" },
     featured: true,
@@ -21,7 +26,11 @@ const APPS = [
     description:
       "Download the official Nova Linx APK for Android 7.0 and up. Install the app, then add the home-screen widget: tap the N to ask, tap the wave for voice. A desktop app is also listed on the download page.",
     icon: "icons/apps/nova-linx-android.png",
-    screenshot: "screenshots/nova-linx-android.jpg",
+    screenshots: [
+      { src: "screenshots/nova-linx-android/phone-top.webp", alt: "Download page for the Android app", form: "phone" },
+      { src: "screenshots/nova-linx-android/phone-computers.webp", alt: "Windows, Linux and Mac downloads", form: "phone" },
+      { src: "screenshots/nova-linx-android/desktop-top.webp", alt: "Download page on a computer", form: "desktop" },
+    ],
     action: { label: "Download", href: "https://lumenaiassistant.com/download/nova-linx.apk", type: "download" },
     secondary: { label: "Download page", href: "https://lumenaiassistant.com/download", type: "open" },
     featured: false,
@@ -35,7 +44,12 @@ const APPS = [
     description:
       "The keypad edition is a lighter version of Nova Linx for feature phones and older browsers. Type a question, press Send, and move through the menu with numbered keys.",
     icon: "icons/apps/nova-linx-keypad.png",
-    screenshot: "screenshots/nova-linx-keypad.jpg",
+    screenshots: [
+      { src: "screenshots/nova-linx-keypad/phone-home.webp", alt: "Nova Linx keypad chat screen", form: "phone" },
+      { src: "screenshots/nova-linx-keypad/phone-menu.webp", alt: "Nova Linx keypad numbered menu", form: "phone" },
+      { src: "screenshots/nova-linx-keypad/phone-settings.webp", alt: "Nova Linx keypad settings", form: "phone" },
+      { src: "screenshots/nova-linx-keypad/desktop-home.webp", alt: "Nova Linx keypad on a computer", form: "desktop" },
+    ],
     action: { label: "Open", href: "https://lumenaiassistant.com/lite", type: "open" },
     featured: false,
     isNew: false,
@@ -48,7 +62,10 @@ const APPS = [
     description:
       "Sign in on this device, then enter the code shown on the keypad. Use the same Nova Linx account you use in the app to link a feature-phone session.",
     icon: "icons/apps/nova-linx-link.png",
-    screenshot: "screenshots/nova-linx-link.jpg",
+    screenshots: [
+      { src: "screenshots/nova-linx-link/phone-home.webp", alt: "Keypad code sign-in on a phone", form: "phone" },
+      { src: "screenshots/nova-linx-link/desktop-home.webp", alt: "Keypad code sign-in on a computer", form: "desktop" },
+    ],
     action: { label: "Open", href: "https://lumenaiassistant.com/link", type: "open" },
     featured: false,
     isNew: false,
@@ -61,7 +78,12 @@ const APPS = [
     description:
       "Open the developer page to create a personal API key. Keys belong to your Nova Linx account. Calls made with a key use your plan and your daily limits.",
     icon: "icons/apps/nova-linx-api.png",
-    screenshot: "screenshots/nova-linx-api.jpg",
+    screenshots: [
+      { src: "screenshots/nova-linx-api/phone-keys.webp", alt: "API keys page on a phone", form: "phone" },
+      { src: "screenshots/nova-linx-api/phone-quickstart.webp", alt: "API Quickstart guide on a phone", form: "phone" },
+      { src: "screenshots/nova-linx-api/desktop-quickstart.webp", alt: "API Quickstart guide on a computer", form: "desktop" },
+      { src: "screenshots/nova-linx-api/desktop-chat.webp", alt: "API Chat documentation on a computer", form: "desktop" },
+    ],
     action: { label: "Open", href: "https://lumenaiassistant.com/developers", type: "open" },
     featured: false,
     isNew: false,
@@ -74,7 +96,12 @@ const APPS = [
     description:
       "Nova Code is a browser IDE from Nova Linx. Edit HTML, CSS, JavaScript and Python, preview live, run your project, and get help as you go. Works on phones, computers and TV browsers.",
     icon: "icons/apps/nova-code.png",
-    screenshot: "screenshots/nova-code.jpg",
+    screenshots: [
+      { src: "screenshots/nova-code/phone-code.webp", alt: "Nova Code editor on a phone", form: "phone" },
+      { src: "screenshots/nova-code/phone-preview.webp", alt: "Nova Code live preview on a phone", form: "phone" },
+      { src: "screenshots/nova-code/phone-files.webp", alt: "Nova Code files and projects on a phone", form: "phone" },
+      { src: "screenshots/nova-code/desktop-code.webp", alt: "Nova Code editor and preview on a computer", form: "desktop" },
+    ],
     action: { label: "Open", href: "https://lumenaiassistant.com/novacode", type: "open" },
     featured: false,
     isNew: true,
@@ -87,7 +114,12 @@ const APPS = [
     description:
       "AnimeSoul is a place to discover and talk with anime characters, step into stories and locations, and create your own character with a personality and speaking style. Public or private — you choose.",
     icon: "icons/apps/animesoul.png",
-    screenshot: "screenshots/animesoul.jpg",
+    screenshots: [
+      { src: "screenshots/animesoul/phone-foryou.webp", alt: "AnimeSoul For You discover page", form: "phone" },
+      { src: "screenshots/animesoul/phone-ranking.webp", alt: "AnimeSoul trending ranking", form: "phone" },
+      { src: "screenshots/animesoul/phone-stories.webp", alt: "AnimeSoul stories", form: "phone" },
+      { src: "screenshots/animesoul/phone-places.webp", alt: "AnimeSoul places you can enter", form: "phone" },
+    ],
     action: { label: "Open", href: "https://animesoul.onrender.com", type: "open" },
     featured: false,
     isNew: true,
@@ -113,6 +145,9 @@ const els = {
 
 let category = "All";
 let lastFocus = null;
+let lbShots = [];
+let lbIndex = 0;
+let lbStartX = 0;
 
 function actionAttrs(action) {
   const extra = action.type === "download" ? " download" : "";
@@ -178,9 +213,21 @@ function render() {
     filtering ? `${visible.length} app${visible.length === 1 ? "" : "s"}` : "All apps";
 }
 
+function shotsOf(app) {
+  return app.screenshots || [];
+}
+
 function openModal(app) {
   lastFocus = document.activeElement;
   const secondary = actionButton(app.secondary, false);
+  const shots = shotsOf(app);
+  const gallery = shots.map((s, i) => {
+    const alt = escapeHtml(s.alt || `${app.name} screenshot ${i + 1}`);
+    const form = s.form === "desktop" ? "desktop" : "phone";
+    return `<figure class="device ${form}" role="listitem" tabindex="0" data-app="${app.id}" data-index="${i}" aria-label="${alt}">
+      <img src="${s.src}" alt="${alt}" loading="lazy">
+    </figure>`;
+  }).join("");
   els.sheet.innerHTML = `
     <button class="modal-close" type="button" id="modal-close" aria-label="Close">×</button>
     <div class="modal-head">
@@ -195,11 +242,8 @@ function openModal(app) {
       ${secondary}
     </div>
     <p class="modal-desc">${escapeHtml(app.description)}</p>
-    <div class="shots">
-      <figure class="device" tabindex="0" data-full="${app.screenshot}" aria-label="Screenshot of ${escapeHtml(app.name)}">
-        <img src="${app.screenshot}" alt="Screenshot of ${escapeHtml(app.name)}">
-      </figure>
-    </div>
+    ${shots.length ? `<h3 class="shots-title">Screenshots</h3>
+    <div class="shots" role="list" aria-label="Screenshots of ${escapeHtml(app.name)}">${gallery}</div>` : ""}
   `;
   els.modal.hidden = false;
   document.body.classList.add("modal-open");
@@ -222,14 +266,55 @@ function openFromHash() {
   else if (!els.modal.hidden) closeModal();
 }
 
-function openLightbox(src, alt) {
-  els.lightbox.innerHTML = `<img src="${src}" alt="${escapeHtml(alt || "")}">`;
+function renderLightbox() {
+  const s = lbShots[lbIndex];
+  if (!s) return;
+  const n = lbShots.length;
+  const form = s.form === "desktop" ? "desktop" : "phone";
+  const alt = escapeHtml(s.alt || "Screenshot");
+  const nav = n > 1;
+  els.lightbox.innerHTML = `
+    <button type="button" class="lb-close" aria-label="Close">×</button>
+    ${nav ? '<button type="button" class="lb-nav lb-prev" aria-label="Previous screenshot">‹</button>' : ""}
+    <figure class="lb-frame ${form}">
+      <img src="${s.src}" alt="${alt}">
+      <figcaption>${lbIndex + 1} of ${n}${s.alt ? " · " + escapeHtml(s.alt) : ""}</figcaption>
+    </figure>
+    ${nav ? '<button type="button" class="lb-nav lb-next" aria-label="Next screenshot">›</button>' : ""}
+  `;
+}
+
+function openLightbox(app, index) {
+  lbShots = shotsOf(app);
+  if (!lbShots.length) return;
+  lbIndex = Math.max(0, Math.min(index, lbShots.length - 1));
+  renderLightbox();
   els.lightbox.hidden = false;
-  els.lightbox.focus();
+  document.body.classList.add("lightbox-open");
+  const closeBtn = els.lightbox.querySelector(".lb-close");
+  if (closeBtn) closeBtn.focus();
 }
 
 function closeLightbox() {
   els.lightbox.hidden = true;
+  document.body.classList.remove("lightbox-open");
+}
+
+function moveLightbox(dir) {
+  if (!lbShots.length) return;
+  lbIndex = (lbIndex + dir + lbShots.length) % lbShots.length;
+  renderLightbox();
+  const btn = els.lightbox.querySelector(dir > 0 ? ".lb-next" : ".lb-prev");
+  if (btn) btn.focus();
+}
+
+function focusShot(current, dir) {
+  const items = [...(current.parentElement?.querySelectorAll(".device") || [])];
+  const i = items.indexOf(current);
+  if (i < 0) return;
+  const next = items[(i + dir + items.length) % items.length];
+  next.focus({ preventScroll: false });
+  next.scrollIntoView({ inline: "nearest", block: "nearest", behavior: "smooth" });
 }
 
 function onActivateCard(target) {
@@ -255,12 +340,20 @@ els.chips.addEventListener("click", (e) => {
 els.search.addEventListener("input", render);
 
 document.addEventListener("click", (e) => {
-  if (e.target.closest(".card-cta") || e.target.closest(".btn")) return;
-  onActivateCard(e.target);
+  if (e.target.closest(".lb-prev")) { moveLightbox(-1); return; }
+  if (e.target.closest(".lb-next")) { moveLightbox(1); return; }
+  if (e.target.closest(".lb-close")) { closeLightbox(); return; }
+  if (e.target === els.lightbox) { closeLightbox(); return; }
   const dev = e.target.closest(".shots .device");
-  if (dev) openLightbox(dev.dataset.full, dev.getAttribute("aria-label"));
+  if (dev) {
+    const app = APPS.find((a) => a.id === dev.dataset.app);
+    if (app) openLightbox(app, Number(dev.dataset.index) || 0);
+    return;
+  }
   if (e.target.id === "modal-close") closeModal();
   if (e.target.classList.contains("modal-backdrop")) closeModal();
+  if (e.target.closest(".card-cta") || e.target.closest(".btn") || e.target.closest(".modal")) return;
+  onActivateCard(e.target);
 });
 
 document.addEventListener("keydown", (e) => {
@@ -277,13 +370,27 @@ document.addEventListener("keydown", (e) => {
     e.preventDefault();
     onActivateCard(e.target);
   }
-  if ((e.key === "Enter" || e.key === " ") && e.target.classList.contains("device") && e.target.dataset.full) {
-    e.preventDefault();
-    openLightbox(e.target.dataset.full, e.target.getAttribute("aria-label"));
+  if (!els.lightbox.hidden) {
+    if (e.key === "ArrowLeft") { e.preventDefault(); moveLightbox(-1); return; }
+    if (e.key === "ArrowRight") { e.preventDefault(); moveLightbox(1); return; }
+  }
+  if (e.target.classList.contains("device") && e.target.closest(".shots")) {
+    if (e.key === "ArrowLeft") { e.preventDefault(); focusShot(e.target, -1); return; }
+    if (e.key === "ArrowRight") { e.preventDefault(); focusShot(e.target, 1); return; }
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      const app = APPS.find((a) => a.id === e.target.dataset.app);
+      if (app) openLightbox(app, Number(e.target.dataset.index) || 0);
+    }
   }
 });
 
-els.lightbox.addEventListener("click", closeLightbox);
+els.lightbox.addEventListener("pointerdown", (e) => { lbStartX = e.clientX; });
+els.lightbox.addEventListener("pointerup", (e) => {
+  if (e.target.closest(".lb-nav") || e.target.closest(".lb-close")) return;
+  const dx = e.clientX - lbStartX;
+  if (Math.abs(dx) > 50) moveLightbox(dx < 0 ? 1 : -1);
+});
 window.addEventListener("hashchange", openFromHash);
 
 render();

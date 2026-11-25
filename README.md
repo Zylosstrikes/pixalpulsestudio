@@ -29,3 +29,5 @@ Pushes to `main` auto-deploy on Render. Use a normal push only.
 ## Studio logo
 
 The official circular mark lives in `icons/` (`logo-1024.png`, `icon-512.png`, `icon-192.png`, favicons, and the maskable PWA icon). The original photo is saved at `icons/source-logo.jpg`.
+
+Each app detail page has a horizontally scrollable screenshot gallery under `screenshots/` (WebP captures of the live apps). Tap a shot to open a full-size lightbox; arrow keys and swipe move between shots.
