@@ -116,6 +116,7 @@ body::before {
   font-size: 1.02rem;
   letter-spacing: -0.03em;
   line-height: 1.05;
+  white-space: nowrap;
 }
 .brand-name span {
   display: block;
@@ -284,8 +285,7 @@ body::before {
   flex-shrink: 0;
   white-space: nowrap;
 }
-.header-api svg { width: 18px; height: 18px; }
-.header-api .label-short { display: none; }
+.header-api svg { width: 18px; height: 18px; flex-shrink: 0; }
 .btn-ghost {
   background: rgba(255,255,255,0.06);
   border-color: var(--line-strong);
@@ -715,9 +715,7 @@ body.modal-open, body.lightbox-open { overflow: hidden; }
     gap: 8px 10px;
   }
   .brand { grid-area: brand; }
-  .header-api { grid-area: api; padding: 0 14px; min-height: 40px; font-size: 0.88rem; }
-  .header-api .label-full { display: none; }
-  .header-api .label-short { display: inline; }
+  .header-api { grid-area: api; padding: 0 12px; min-height: 40px; font-size: 0.86rem; }
   .search { grid-area: search; width: 100%; }
   .brand-name span { display: none; }
   .grid { grid-template-columns: 1fr; }
@@ -731,7 +729,9 @@ body.modal-open, body.lightbox-open { overflow: hidden; }
 /* Phone: hide wordmark if tight — actually keep it, shrink search */
 @media (max-width: 420px) {
   .wrap { width: min(var(--max), calc(100% - 20px)); }
-  .header .wrap { gap: 10px; }
+  .header .wrap { gap: 8px; }
+  .header-api { padding: 0 10px; min-height: 38px; font-size: 0.82rem; }
+  .header-api svg { width: 16px; height: 16px; }
 }
 
 /* TV / large lean-back */
