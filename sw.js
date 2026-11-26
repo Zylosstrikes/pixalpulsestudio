@@ -1,4 +1,4 @@
-const CACHE = "pps-20261125b";
+const CACHE = "pps-20261126a";
 const PRECACHE = [
   "./",
   "./index.html",

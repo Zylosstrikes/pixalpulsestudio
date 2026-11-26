@@ -38,40 +38,6 @@ const APPS = [
     isNew: false,
   },
   {
-    id: "nova-linx-keypad",
-    name: "Nova Linx keypad",
-    category: "Tools",
-    blurb: "A simple Nova Linx made for feature phones and basic browsers.",
-    description:
-      "The keypad edition is a lighter version of Nova Linx for feature phones and older browsers. Type a question, press Send, and move through the menu with numbered keys.",
-    icon: "icons/apps/nova-linx-keypad.png",
-    screenshots: [
-      { src: "screenshots/nova-linx-keypad/phone-home.webp", alt: "Nova Linx keypad chat screen", form: "phone" },
-      { src: "screenshots/nova-linx-keypad/phone-menu.webp", alt: "Nova Linx keypad numbered menu", form: "phone" },
-      { src: "screenshots/nova-linx-keypad/phone-settings.webp", alt: "Nova Linx keypad settings", form: "phone" },
-      { src: "screenshots/nova-linx-keypad/desktop-home.webp", alt: "Nova Linx keypad on a computer", form: "desktop" },
-    ],
-    action: { label: "Open", href: "https://lumenaiassistant.com/lite", type: "open" },
-    featured: false,
-    isNew: false,
-  },
-  {
-    id: "nova-linx-link",
-    name: "Keypad code sign-in",
-    category: "Tools",
-    blurb: "Enter a keypad code to sign in to Nova Linx Lite on another phone.",
-    description:
-      "Sign in on this device, then enter the code shown on the keypad. Use the same Nova Linx account you use in the app to link a feature-phone session.",
-    icon: "icons/apps/nova-linx-link.png",
-    screenshots: [
-      { src: "screenshots/nova-linx-link/phone-home.webp", alt: "Keypad code sign-in on a phone", form: "phone" },
-      { src: "screenshots/nova-linx-link/desktop-home.webp", alt: "Keypad code sign-in on a computer", form: "desktop" },
-    ],
-    action: { label: "Open", href: "https://lumenaiassistant.com/link", type: "open" },
-    featured: false,
-    isNew: false,
-  },
-  {
     id: "nova-linx-api",
     name: "Nova Linx API keys",
     category: "Developer",
@@ -127,7 +93,7 @@ const APPS = [
   },
 ];
 
-const CATEGORIES = ["All", "Assistant", "Android", "Tools", "Developer", "Entertainment"];
+const CATEGORIES = ["All", "Assistant", "Android", "Developer", "Entertainment"];
 
 const els = {
   search: document.getElementById("search"),
