@@ -3,20 +3,27 @@ const APPS = [
     id: "nova-linx",
     name: "Nova Linx",
     category: "Assistant",
-    blurb: "Your fast, friendly AI assistant for chat, homework, pictures and voice.",
+    blurb: "Your fast, friendly AI assistant — now with Lite Mode, offline chats, and one-tap prompts.",
     description:
-      "Nova Linx is a free AI chat assistant from Pixal Pulse Studio. Ask anything, get homework and math help, create pictures and videos, build apps, and talk by voice.",
+      "Nova Linx is a free AI chat assistant from Pixal Pulse Studio. Ask anything, get homework and math help, create pictures and videos, build apps, and talk by voice. Lite Mode turns on by itself on slow networks and basic phones, or you can toggle it. Chats stay saved on your device if the connection drops, with a Clear History button. One-tap prompt chips sit above the message box, and every reply has Save Output and Listen.",
     icon: "icons/apps/nova-linx.png",
+    whatsNew: [
+      "Lite Mode for slow networks and basic phones — auto or manual",
+      "Chats stay on this device, with a Clear History button",
+      "One-tap prompt chips: homework, app builder, image/video, short answers",
+      "Save Output as .txt or .html, and Listen to any reply",
+    ],
     screenshots: [
-      { src: "screenshots/nova-linx/phone-home.webp", alt: "Nova Linx home screen on a phone", form: "phone" },
+      { src: "screenshots/nova-linx/phone-home.webp", alt: "Nova Linx home with Lite Mode and prompt chips on a phone", form: "phone" },
+      { src: "screenshots/nova-linx/phone-chips.webp", alt: "One-tap prompt chips and the message box on a phone", form: "phone" },
       { src: "screenshots/nova-linx/phone-menu.webp", alt: "Nova Linx side menu and Explore", form: "phone" },
       { src: "screenshots/nova-linx/phone-images.webp", alt: "Nova Linx Images, with picture templates", form: "phone" },
-      { src: "screenshots/nova-linx/desktop-home.webp", alt: "Nova Linx on a computer", form: "desktop" },
+      { src: "screenshots/nova-linx/desktop-home.webp", alt: "Nova Linx on a computer, with prompt chips and Lite Mode", form: "desktop" },
     ],
     action: { label: "Open", href: "https://lumenaiassistant.com", type: "open" },
     secondary: { label: "Get Android app", href: "https://lumenaiassistant.com/download/nova-linx.apk", type: "download" },
     featured: true,
-    isNew: false,
+    isNew: true,
     showApi: true,
   },
   {
@@ -198,6 +205,12 @@ function openModal(app) {
     ? `<a class="btn btn-api" href="https://lumenaiassistant.com/developers" target="_blank" rel="noopener noreferrer">Get API key</a>`
     : "";
   const shots = shotsOf(app);
+  const news = app.whatsNew || [];
+  const whatsNew = news.length
+    ? `<div class="whats-new"><h3>What's new</h3><ul>${news.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></div>`
+    : "";
+  const shareBtns = `<button class="btn btn-ghost" type="button" data-share="${app.id}">Share</button>
+      <button class="btn btn-ghost" type="button" data-copy="${app.id}">Copy link</button>`;
   const gallery = shots.map((s, i) => {
     const alt = escapeHtml(s.alt || `${app.name} screenshot ${i + 1}`);
     const form = s.form === "desktop" ? "desktop" : "phone";
@@ -218,8 +231,10 @@ function openModal(app) {
       ${actionButton(app.action, true)}
       ${apiBtn}
       ${secondary}
+      ${shareBtns}
     </div>
     <p class="modal-desc">${escapeHtml(app.description)}</p>
+    ${whatsNew}
     ${shots.length ? `<h3 class="shots-title">Screenshots</h3>
     <div class="shots" role="list" aria-label="Screenshots of ${escapeHtml(app.name)}">${gallery}</div>` : ""}
   `;
@@ -418,6 +433,75 @@ window.addEventListener("hashchange", openFromHash);
 
 render();
 openFromHash();
+
+
+function toast(msg) {
+  let el = document.getElementById("pps-toast");
+  if (!el) {
+    el = document.createElement("div");
+    el.id = "pps-toast";
+    el.className = "toast";
+    el.setAttribute("role", "status");
+    document.body.appendChild(el);
+  }
+  el.textContent = msg;
+  el.classList.add("show");
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => el.classList.remove("show"), 2200);
+}
+
+function appShareUrl(app) {
+  try {
+    const url = new URL(location.href);
+    url.hash = "app=" + app.id;
+    return url.toString();
+  } catch (_) {
+    return (location.origin || "") + "/#app=" + app.id;
+  }
+}
+
+function copyAppLink(app) {
+  const url = appShareUrl(app);
+  const done = () => toast("Link copied");
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(done).catch(() => {
+      window.prompt("Copy this link", url);
+    });
+  } else {
+    window.prompt("Copy this link", url);
+  }
+}
+
+function shareApp(app) {
+  const url = appShareUrl(app);
+  const data = {
+    title: app.name + " · Pixal Pulse Studio",
+    text: app.blurb || app.name,
+    url,
+  };
+  if (navigator.share) {
+    navigator.share(data).then(() => toast("Ready to share")).catch((err) => {
+      if (err && err.name === "AbortError") return;
+      copyAppLink(app);
+    });
+    return;
+  }
+  copyAppLink(app);
+}
+
+document.addEventListener("click", (e) => {
+  const shareBtn = e.target.closest("[data-share]");
+  if (shareBtn) {
+    const app = APPS.find((a) => a.id === shareBtn.getAttribute("data-share"));
+    if (app) shareApp(app);
+    return;
+  }
+  const copyBtn = e.target.closest("[data-copy]");
+  if (copyBtn) {
+    const app = APPS.find((a) => a.id === copyBtn.getAttribute("data-copy"));
+    if (app) copyAppLink(app);
+  }
+});
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("./sw.js").catch(() => {});

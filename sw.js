@@ -1,10 +1,10 @@
-const CACHE = "pps-20261126b";
+const CACHE = "pps-20261127a";
 const PRECACHE = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
-  "./manifest.webmanifest",
+  "./manifest.json",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./apple-touch-icon.png",

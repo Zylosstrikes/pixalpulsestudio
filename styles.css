@@ -885,3 +885,53 @@ main, .footer { position: relative; z-index: 1; }
   }
   .ambiance .orb { transform: none; }
 }
+
+
+.whats-new {
+  margin: 4px 0 18px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.28);
+}
+.whats-new h3 {
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #d8b4fe;
+}
+.whats-new ul {
+  margin: 0;
+  padding: 0 0 0 1.1em;
+  color: var(--muted);
+}
+.whats-new li {
+  margin: 0 0 6px;
+  line-height: 1.45;
+}
+.whats-new li:last-child { margin-bottom: 0; }
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%) translateY(16px);
+  background: #161226;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 12px 32px rgba(0,0,0,.4);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 80;
+  transition: opacity .2s ease, transform .2s ease;
+  max-width: calc(100vw - 32px);
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
